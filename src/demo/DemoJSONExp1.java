@@ -26,13 +26,13 @@ public class DemoJSONExp1 extends Game {
     private SimpleText text;
     private FTimer timer = new FTimer(1000 / 60);
     private FTimer newEntity = new FTimer(1000 / 2);
-    private Random ramdom = new Random();
-    private DemoJSONExp1() throws IOException {
+    private Random random = new Random();
+    public DemoJSONExp1() throws IOException {
         super(2);
     }
     public static void main(String[] args) {
         try {
-            new DemoJSONExp1();
+            launch(DemoJSONExp1.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,10 +75,10 @@ public class DemoJSONExp1 extends Game {
             if(key[1] && (player.getY() > 0)) {
                 player.setY(player.getY() - 1);
             }
-            if(key[2] && (player.getX() < 760)) {
+            if(key[2] && (player.getX() < 755)) {
                 player.setX(player.getX() + 1);
             }
-            if(key[3] && (player.getY() < 460)) {
+            if(key[3] && (player.getY() < 430)) {
                 player.setY(player.getY() + 1);
             }
         }
@@ -88,8 +88,8 @@ public class DemoJSONExp1 extends Game {
                 db.insert("highestScore", score);
             }
             text.setText("Highest Score: " + db.query("highestScore", 0).toString());
-            ShapeObject entity = new ShapeObject(ColorResource.基佬紫, new FRectangle(20, 20), 800, ramdom.nextInt(480));
-            entity.addAnim(new SimpleMove(-20 - ramdom.nextInt(50), 10 - ramdom.nextInt(20)));
+            ShapeObject entity = new ShapeObject(ColorResource.基佬紫, new FRectangle(20, 20), 800, random.nextInt(480));
+            entity.addAnim(new SimpleMove(-20 - random.nextInt(50), 10 - random.nextInt(20)));
             entity.addCollider(player, () -> {
                 this.gameover();
                 return Unit.INSTANCE;
