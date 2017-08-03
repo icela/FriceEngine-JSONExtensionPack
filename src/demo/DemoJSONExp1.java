@@ -49,7 +49,7 @@ public class DemoJSONExp1 extends Game {
         this.setSize(800,500);
         this.setTitle("JSON Demo");
         this.addObject(0, player);
-        this.addObject(text);
+        this.addObject(1, text);
         this.addKeyListener(new KeyListener() {
             @Override public void keyTyped(KeyEvent e) {
 
@@ -94,7 +94,7 @@ public class DemoJSONExp1 extends Game {
                 this.gameover();
                 return Unit.INSTANCE;
             });
-            this.addObject(entity);
+            this.addObject(0, entity);
         }
     }
     private void gameover() {
@@ -102,8 +102,8 @@ public class DemoJSONExp1 extends Game {
         this.clearObjects();
         player = new ShapeObject(ColorResource.清真绿, new FCircle(20), 0, 240);
         text = new SimpleText("Highest Score: " + db.query("highestScore", 0).toString(), 10, 10);
-        this.addObject(player);
-        this.addObject(text);
+        this.addObject(0, player);
+        this.addObject(1, text);
         db.insert("death", db.queryT("death", 0) + 1);
     }
 }
