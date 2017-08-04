@@ -6,4 +6,3 @@ jsons.
 
 - [JSONPreference.java](/src/org/frice/game/utils/data/JSONPreference.java)(The main body of this pack.)
 - [org.json](/src/org/json/)(The json library.)
-- [demo](/src/demo)(The demo(s).)
